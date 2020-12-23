@@ -1,0 +1,36 @@
+.row {
+  max-width: $grid-width;
+//   background-color: #eee;
+  margin: 0 auto; // top and bottom zero(0) ,left &  right  auto(browser rendering automatice set left and right margin he needed)
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+    //:not(selector) selector matches every element that is NOT the specified element/selector.
+  }
+
+  @include clearfix;
+
+  [class^='col-'] {
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+}
